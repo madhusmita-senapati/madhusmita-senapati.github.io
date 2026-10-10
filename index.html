@@ -1,0 +1,427 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Madhusmita Senapati Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout concept: a case-file portfolio. Hero with an at-a-glance card, a one-product index of five lifecycle stages, then five case studies in a fixed two-column format (stage and artifacts on the left, story on the right). */
+:root {
+  --bg: #F2F5F7;
+  --surface: #FFFFFF;
+  --surface-2: #E8EEF2;
+  --ink: #101C2B;
+  --ink-2: #435468;
+  --line: #D2DBE3;
+  --accent: #0B6E63;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #DDF0EC;
+  --mark: #8A4B08;
+  --mark-soft: #FBEBD3;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1520; --surface: #132131; --surface-2: #1A2B3D; --ink: #E7EEF5; --ink-2: #9DB0C3;
+    --line: #263A4F; --accent: #4CCDB4; --accent-ink: #06241F; --accent-soft: #12342F;
+    --mark: #F0B35A; --mark-soft: #3A2A10; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1520; --surface: #132131; --surface-2: #1A2B3D; --ink: #E7EEF5; --ink-2: #9DB0C3;
+  --line: #263A4F; --accent: #4CCDB4; --accent-ink: #06241F; --accent-soft: #12342F;
+  --mark: #F0B35A; --mark-soft: #3A2A10; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; padding-inline: 20px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; letter-spacing: -0.02em; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+.mono { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* top bar */
+.bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 1.5rem; padding-block: 1.25rem; }
+.bar b { font-family: var(--font-display); font-size: 1.05rem; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.bar nav a { color: var(--ink-2); text-decoration: none; font-size: 0.95rem; }
+.bar nav a:hover { color: var(--accent); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 2.5rem; padding-block: 2.5rem 3.5rem; align-items: start; }
+.eyebrow { color: var(--accent); margin-bottom: 1rem; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 800; }
+.lead { font-size: 1.2rem; color: var(--ink-2); max-width: 36rem; margin-top: 1.25rem; }
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 1.75rem; }
+.btn { display: inline-flex; align-items: center; background: var(--accent); color: var(--accent-ink); font-weight: 700; padding: 0.7rem 1.2rem; border-radius: 6px; text-decoration: none; }
+.btn:hover { filter: brightness(1.08); }
+.mail { display: inline-flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.mail code { font-family: var(--font-mono); font-size: 0.9rem; user-select: all; overflow-wrap: anywhere; }
+.copy { font: inherit; font-size: 0.85rem; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 0.3rem 0.7rem; cursor: pointer; }
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+.glance { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.4rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.glance div { display: flex; flex-direction: column; gap: 0.1rem; }
+.glance dt { color: var(--ink-2); }
+.glance dd { margin: 0; font-weight: 600; }
+.glance dl { margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+
+/* sections */
+section { padding-block: 3rem; }
+.sec-head { display: flex; flex-direction: column; gap: 0.75rem; max-width: 40rem; margin-bottom: 2rem; }
+.sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; }
+.sec-head p { color: var(--ink-2); }
+
+/* growth results */
+.results { display: grid; grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); gap: 1rem; }
+.result { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+.result strong { font-family: var(--font-display); font-size: 2.3rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; color: var(--accent); }
+.result span { color: var(--ink-2); font-size: 0.95rem; }
+.result .mono { color: var(--ink); }
+
+/* index */
+.index { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1rem; counter-reset: stage; }
+.index li { counter-increment: stage; }
+.index a { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem; text-decoration: none; color: var(--ink); }
+.index a:hover { border-color: var(--accent); }
+.index a::before { content: "Module " counter(stage); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.index b { font-family: var(--font-display); font-size: 1.2rem; }
+.index span { color: var(--ink-2); font-size: 0.92rem; }
+.note { margin-top: 1.5rem; background: var(--mark-soft); color: var(--ink); border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.95rem; }
+
+/* case studies */
+.case { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1.5rem 3.5rem; padding-block: 3.25rem; border-top: 1px solid var(--line); }
+.case aside { display: flex; flex-direction: column; gap: 1rem; align-self: start; }
+.case .stage { color: var(--accent); }
+.case aside h3 { font-size: 1.5rem; font-weight: 700; }
+.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { background: var(--surface-2); color: var(--ink); font-family: var(--font-mono); font-size: 0.74rem; padding: 0.25rem 0.55rem; border-radius: 4px; }
+.case .story { display: flex; flex-direction: column; gap: 1.6rem; min-width: 0; }
+.case .story h4 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: 0; letter-spacing: -0.015em; }
+.case .story h5 { margin: 0 0 0.6rem; color: var(--ink-2); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.case .story p { max-width: 42rem; }
+.case .story ul { max-width: 42rem; }
+.decision { background: var(--accent-soft); border-radius: 8px; padding: 1.1rem 1.25rem; max-width: 42rem; }
+.decision h5 { color: var(--accent); }
+.tag { display: inline-block; vertical-align: middle; background: var(--mark-soft); color: var(--mark); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 3px; margin-left: 0.4rem; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem; max-width: 42rem; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 0.8rem 0.9rem; display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.fact b { font-family: var(--font-display); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.fact span { color: var(--ink-2); font-size: 0.85rem; line-height: 1.35; }
+
+/* funnel */
+.funnel { max-width: 42rem; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.25rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.funnel h5 { margin: 0; }
+.frow { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) 6.5rem; align-items: center; gap: 0.75rem; font-size: 0.92rem; }
+.frow .track { height: 14px; background: var(--surface-2); border-radius: 3px; position: relative; }
+.frow .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); border-radius: 3px; }
+.frow .ext { position: absolute; top: 0; bottom: 0; background: var(--accent); opacity: 0.4; border-radius: 0 3px 3px 0; }
+.frow output { font-family: var(--font-mono); font-size: 0.82rem; text-align: right; font-variant-numeric: tabular-nums; }
+.funnel small { color: var(--ink-2); }
+
+/* contact */
+.contact { border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start; }
+.contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 30rem; }
+footer { padding-block: 2rem 3rem; color: var(--ink-2); font-size: 0.9rem; max-width: 46rem; }
+
+@media (max-width: 820px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .case { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .case aside { flex-direction: column; }
+}
+@media (min-width: 821px) {
+  .case aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1.5rem); }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .frow { grid-template-columns: 6.5rem minmax(0, 1fr) 5.5rem; gap: 0.5rem; font-size: 0.85rem; }
+}
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <b>Madhusmita Senapati</b>
+    <nav aria-label="Sections">
+      <a href="#results">Growth results</a>
+      <a href="#teen-pay">Teen Pay</a>
+      <a href="#discover">Case studies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <p class="eyebrow mono">Product management portfolio</p>
+        <h1>Madhusmita Senapati</h1>
+        <p class="lead">Growth and go-to-market professional with 7+ years in B2B and B2C sales and marketing, moving into product management. These five case studies follow one product, Teen Pay, from the first problem statement to launch metrics.</p>
+        <div class="cta">
+          <a class="btn" href="https://www.linkedin.com/in/madhusmita-senapati-2869ab196/">Connect on LinkedIn</a>
+          <span class="mail"><code id="email">MadhusmitaSenapati25@gmail.com</code><button class="copy" id="copy" type="button">Copy email</button></span>
+        </div>
+      </div>
+      <div class="glance">
+        <dl>
+          <div><dt class="mono">Certification</dt><dd>International Certificate in Product Management (ICPM), IPL University, 2026</dd></div>
+          <div><dt class="mono">Current role</dt><dd>Assistant General Manager, Growth Marketing, Magicrete Building Solutions</dd></div>
+          <div><dt class="mono">Product toolkit</dt><dd>Jira, Figma, PRD and DRD writing, Power BI, Dynamics 365, A/B testing</dd></div>
+          <div><dt class="mono">Based in</dt><dd>Surat, Gujarat, India</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <section id="results" aria-labelledby="results-h">
+      <div class="sec-head">
+        <h2 id="results-h">Growth results behind the move</h2>
+        <p>Product thinking started in my sales and marketing work: finding where the funnel leaks, changing the process, and checking the numbers.</p>
+      </div>
+      <div class="results">
+        <div class="result"><strong>5% to 30%</strong><span>MQL to SQL conversion after rewriting lead qualification criteria with sales and aligning CRM workflows.</span><span class="mono">Magicrete, 2023 to now</span></div>
+        <div class="result"><strong>+40%</strong><span>Lead acquisition above goal within six months through LinkedIn, SEO and targeted outreach.</span><span class="mono">Magicrete</span></div>
+        <div class="result"><strong>Up to 120%</strong><span>Quarterly conversion lift from a lead prioritisation model built on engagement, source quality and response time.</span><span class="mono">Skill-Lync, 2022 to 2023</span></div>
+        <div class="result"><strong>15</strong><span>Inside sales team members led, reaching 80 to 100% of monthly revenue targets.</span><span class="mono">Skill-Lync</span></div>
+      </div>
+    </section>
+
+    <section id="teen-pay" aria-labelledby="tp-h">
+      <div class="sec-head">
+        <h2 id="tp-h">One product, five lenses</h2>
+        <p>Teen Pay is a parent-linked UPI payment app for teens aged 13 to 19. Teens pay independently by QR code. Parents see every payment, set limits and follow learning progress. Short gamified lessons turn everyday spending into money skills. I worked on it with Team 2 across all five modules of the ICPM program.</p>
+      </div>
+      <ol class="index" id="discover" aria-label="Case studies in order">
+        <li><a href="#cs-fundamentals"><b>Discover</b><span>Product fundamentals and the riskiest assumption</span></a></li>
+        <li><a href="#cs-uiux"><b>Design</b><span>UI/UX, research plan, PRD and DRD</span></a></li>
+        <li><a href="#cs-agile"><b>Build</b><span>Agile stories, backlog and scrum board</span></a></li>
+        <li><a href="#cs-gtm"><b>Launch</b><span>Go-to-market, pricing and 90-day plan</span></a></li>
+        <li><a href="#cs-data"><b>Measure</b><span>Data-driven metrics and pilot design</span></a></li>
+      </ol>
+      <p class="note">These are program capstones and Teen Pay is not a shipped product. Figures tagged Target or Planned are plan values for the project, not live results.</p>
+    </section>
+
+    <!-- 1 -->
+    <article class="case" id="cs-fundamentals">
+      <aside>
+        <p class="stage mono">Module 1 · Discover</p>
+        <h3>Fundamentals of Product Management</h3>
+        <ul class="chips" aria-label="Deliverables">
+          <li class="chip">Problem statement</li><li class="chip">Personas</li><li class="chip">Empathy map</li><li class="chip">Value proposition canvas</li><li class="chip">Assumption map</li><li class="chip">MVP experiment</li>
+        </ul>
+      </aside>
+      <div class="story">
+        <h4>Find the riskiest assumption before building anything</h4>
+        <div>
+          <h5>The problem</h5>
+          <p>Indian teens want to learn about digital payments but lack confidence with modern money tools, and parents lack a structured, secure way to teach and monitor. Published research frames the gap: 96% of surveyed parents said their children lack money-management knowledge, 93% of teens wanted to learn about digital payments, and only 22% felt confident using them (muvin-Momspresso survey, 2022, reported by Mint; 600 teens and 600 parents). RBI's financial education strategy for 2020 to 2025 also treats financial literacy as a core life skill.</p>
+        </div>
+        <div>
+          <h5>What we did</h5>
+          <ul>
+            <li>Built two personas, Arjun (16, wants independence) and Rajesh (45, wants his son to learn the value of money), with an empathy map for each side.</li>
+            <li>Mapped value proposition canvases for both users. They led to three product pillars: a Freedom payment suite, a gamified Wealth-Lab, and an automated Smart-Saver utility.</li>
+            <li>Listed five assumptions on incentives, parental trust, spending behaviour, market access and retention, then picked the one that matters most.</li>
+          </ul>
+        </div>
+        <div class="decision">
+          <h5>Key decision</h5>
+          <p>The critical assumption: teens will engage with financial lessons inside a payment app if the lessons are gamified and tied to an immediate reward. If this is false, Teen Pay becomes one more wallet next to Google Pay and Amazon Pay. So the first experiment tests learning, not payments.</p>
+        </div>
+        <div>
+          <h5>The experiment <span class="tag">Planned</span></h5>
+          <p>A Learn-to-Earn smoke test: social ads lead to a landing page with a 30-second explainer, a sample quiz and a waitlist for teens and parents. It is validated if more than 15% join the waitlist and more than 60% attempt the quiz. It is invalidated if users skip the learning content or acquisition cost is too high.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="case" id="cs-uiux">
+      <aside>
+        <p class="stage mono">Module 2 · Design</p>
+        <h3>UI/UX for Product Management</h3>
+        <ul class="chips" aria-label="Deliverables">
+          <li class="chip">UCD canvas</li><li class="chip">User research guide</li><li class="chip">PRD</li><li class="chip">DRD</li><li class="chip">Figma prototype</li>
+        </ul>
+      </aside>
+      <div class="story">
+        <h4>Design for a teen who wants freedom and a parent who wants visibility</h4>
+        <div>
+          <h5>The problem</h5>
+          <p>The two users want opposite things. Teens want to pay without asking. Parents want to see and limit spending. A design that leans too far either way feels like surveillance to one and like risk to the other.</p>
+        </div>
+        <div>
+          <h5>What we did</h5>
+          <ul>
+            <li>Wrote a user-centred design canvas covering users, context of use, pain points, key tasks, constraints and five design principles, led by freedom with guardrails.</li>
+            <li>Drafted a user research guide with interview scripts for teens and parents and a usability test plan.<span class="tag">Planned</span></li>
+            <li>Wrote a PRD with 14 requirements across three releases, each traced to a user story, plus goals, non-goals, metrics and risks.</li>
+            <li>Wrote a DRD with the information architecture for the teen app and the parent app, an 11-screen inventory with success, failed and blocked states, and accessibility and microcopy rules.</li>
+            <li>Prototyped the core flows in Figma: onboarding and parent linking, Scan and Pay, Need vs Want tagging, limits and savings goals.</li>
+          </ul>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>16 + 3</b><span>Interviews and paired family sessions in the research plan</span></div>
+          <div class="fact"><b>10</b><span>Prototype usability tests planned, 5 teens and 5 parents</span></div>
+          <div class="fact"><b>14</b><span>PRD requirements across 3 releases</span></div>
+          <div class="fact"><b>11</b><span>Screens specified in the DRD</span></div>
+        </div>
+        <div class="decision">
+          <h5>Key decision</h5>
+          <p>Every blocked payment has to explain itself. When a spending limit stops a teen's payment, the teen sees why and the parent is alerted at the same moment. Both sides see the same facts, which keeps the limit from feeling arbitrary.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="case" id="cs-agile">
+      <aside>
+        <p class="stage mono">Module 3 · Build</p>
+        <h3>Agile Product Management</h3>
+        <ul class="chips" aria-label="Deliverables">
+          <li class="chip">Vision and problem statements</li><li class="chip">Business model canvas</li><li class="chip">Affinity map</li><li class="chip">Story maps</li><li class="chip">User journeys</li><li class="chip">User stories</li><li class="chip">Prioritised backlog</li><li class="chip">Scrum board in Jira</li>
+        </ul>
+      </aside>
+      <div class="story">
+        <h4>Turn a product vision into a backlog a team can build</h4>
+        <div>
+          <h5>The problem</h5>
+          <p>A vision of safe financial independence for teens is not buildable until it is split into small, testable pieces and put in order. The team also had to show where Teen Pay sits against FamPay and FamApp, OmniCard, PhonePe, Google Pay, Paytm and bank apps.</p>
+        </div>
+        <div>
+          <h5>What we did</h5>
+          <ul>
+            <li>Wrote a vision statement and separate problem statements for the parent and the teen.</li>
+            <li>Grouped tasks with an affinity map, drew the interaction flow, and built story maps and journeys for both users.</li>
+            <li>Wrote epics and six user stories with acceptance criteria and story points on a Jira scrum board, from onboarding and parent linking to Scan and Pay, spending limits, Need vs Want, savings goals and payment failure handling.</li>
+            <li>Sorted the backlog into four tiers and ran a sprint board with To Do, In Progress and Done columns.</li>
+          </ul>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>6</b><span>User stories with acceptance criteria</span></div>
+          <div class="fact"><b>8 pts</b><span>Top estimate: secure Scan and Pay with real-time alerts</span></div>
+          <div class="fact"><b>4</b><span>Backlog tiers, from core payments to future ideas</span></div>
+        </div>
+        <div class="decision">
+          <h5>Key decision</h5>
+          <p>Payments and parent visibility come first: profile and parent linking, secure UPI and QR payment, real-time notifications, history and support. Limits and Need vs Want follow, then quizzes, rewards, goals and summaries. The stock market simulator, multi-kid accounts and AI-generated stories wait.</p>
+        </div>
+        <div>
+          <h5>Where Teen Pay differs</h5>
+          <p>Competitors cover payments, parental controls or learning in pieces. Teen Pay is planned as the one product that combines controlled spending with financial learning.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="case" id="cs-gtm">
+      <aside>
+        <p class="stage mono">Module 4 · Launch</p>
+        <h3>Go-to-Market Product Management</h3>
+        <ul class="chips" aria-label="Deliverables">
+          <li class="chip">Market analysis</li><li class="chip">SWOT</li><li class="chip">Positioning</li><li class="chip">Pricing</li><li class="chip">Funnel strategy</li><li class="chip">Budget and media plan</li><li class="chip">Stakeholder map</li>
+        </ul>
+      </aside>
+      <div class="story">
+        <h4>Win the parent and the teen at the same time</h4>
+        <div>
+          <h5>The problem</h5>
+          <p>The market is large: about 253 million adolescents in India, payments growing at 18.5% a year and 23.2 billion UPI transactions a month. Payments are also becoming a commodity, so payments alone cannot be the moat. The hard part of launch is that both a parent and a teen must onboard. 78% of parents interviewed wanted better visibility into teen spending.</p>
+        </div>
+        <div>
+          <h5>What we did</h5>
+          <ul>
+            <li>Chose the first segment: teens 13 to 19 and parents 38 to 50 in middle and high income urban households, starting in six metros and expanding to Ahmedabad, Jaipur, Chandigarh and Indore.</li>
+            <li>Wrote a positioning statement and separate messages: "Spend independently. Learn responsibly." for teens, and financial freedom with visibility for parents.</li>
+            <li>Set a three-tier pricing model: Free at ₹0, Smart at ₹999 a year, and Family+ at ₹1,499 a year for up to three teens.</li>
+            <li>Planned a ₹15 lakh quarter that ramps from test to optimise to scale: ₹7.5 lakh for social and paid media, ₹4.5 lakh for partnerships and SEO, and ₹3 lakh for content.</li>
+          </ul>
+        </div>
+        <div class="funnel" role="group" aria-label="90-day funnel targets, drawn to scale">
+          <h5>90-day funnel <span class="tag">Target</span></h5>
+          <div class="frow"><span>Page visits</span><div class="track"><div class="fill" style="width:100%"></div></div><output>30,000+</output></div>
+          <div class="frow"><span>Registrations</span><div class="track"><div class="fill" style="width:20%"></div></div><output>6,000+</output></div>
+          <div class="frow"><span>Parent and teen linked</span><div class="track"><div class="fill" style="width:11.67%"></div></div><output>3,500+</output></div>
+          <div class="frow"><span>Activated families</span><div class="track"><div class="fill" style="width:8.33%"></div><div class="ext" style="left:8.33%;width:1.67%"></div></div><output>2,500 to 3,000</output></div>
+          <small>Bars are drawn to the same scale. Paid media cost per activated family is capped at ₹300; the channel plan averages about ₹259.</small>
+        </div>
+        <div class="decision">
+          <h5>Key decision</h5>
+          <p>Treat trust as the growth channel. Parent-facing content, school workshops and parent communities carry the safety message, while Reels, Shorts and creators carry the freedom and rewards message to teens. Each stage of awareness, interest, activation and retention has its own measure.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="case" id="cs-data">
+      <aside>
+        <p class="stage mono">Module 5 · Measure</p>
+        <h3>Data-Driven Product Management</h3>
+        <ul class="chips" aria-label="Deliverables">
+          <li class="chip">Problem validation plan</li><li class="chip">Product-market fit framework</li><li class="chip">Metric definitions</li><li class="chip">Growth roadmap</li>
+        </ul>
+      </aside>
+      <div class="story">
+        <h4>Decide in advance what counts as proof</h4>
+        <div>
+          <h5>The problem</h5>
+          <p>Waitlist sign-ups are easy to collect and easy to misread. A product for families only works if they link accounts, keep paying and keep learning after the launch rewards end.</p>
+        </div>
+        <div>
+          <h5>What we did</h5>
+          <ul>
+            <li>Planned problem validation interviews with teens and parents before testing any solution.</li>
+            <li>Defined smoke test measures with exact formulas: waitlist conversion as unique sign-ups divided by unique visitors, and quiz completion as completers divided by starters, each reported with sample size and traffic source.</li>
+            <li>Defined three pilot measures: family activation (linked and first payment within 7 days), week-four payment retention (a payment on days 22 to 28), and repeat learning (another lesson within 7 days of the first).</li>
+            <li>Added business measures for premium conversion, customer acquisition cost, lifetime value with stated assumptions, separate parent and teen NPS, and support quality, plus channel CAC and referral yield.</li>
+          </ul>
+        </div>
+        <div class="decision">
+          <h5>Key decision</h5>
+          <p>Gate each stage on evidence. The roadmap moves from validating demand, to proving family value in a live pilot, to scaling sustainably, and each step needs its own decision evidence. Waitlist interest counts as an early signal. Sustained use and learning outcomes count as stronger proof.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>3</b><span>Gated roadmap stages: validate, prove, scale</span></div>
+          <div class="fact"><b>3</b><span>Pilot measures: activation, retention, repeat learning</span></div>
+          <div class="fact"><b>2</b><span>Separate NPS scores, for parents and for teens</span></div>
+        </div>
+      </div>
+    </article>
+
+    <section class="contact" id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Looking for product roles in growth, GTM and B2B products</h2>
+      <p>I am open to Associate Product Manager and Product Manager roles. Message me on LinkedIn or write to me directly.</p>
+      <div class="cta">
+        <a class="btn" href="https://www.linkedin.com/in/madhusmita-senapati-2869ab196/">Connect on LinkedIn</a>
+        <span class="mail"><code>MadhusmitaSenapati25@gmail.com</code></span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Teen Pay is a team capstone for the International Certificate in Product Management (ICPM) at IPL University. Market figures come from the capstone research, including UNICEF India and the muvin-Momspresso survey reported by Mint. Targets and plans are marked as such.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy');
+  var el = document.getElementById('email');
+  if (!btn || !el) return;
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy email'; }, 2000); };
+    var fallback = function () {
+      try {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected, press copy';
+      } catch (e) {}
+    };
+    try {
+      navigator.clipboard.writeText(el.textContent).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body></html>
